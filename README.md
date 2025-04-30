@@ -110,6 +110,8 @@ output "dashboard_id" {
 | `apns`                      | Enable/Disable APNs                        | `number`| `0`     | no       |
 | `uls`                       | Enable/Disable ULS                         | `number`| `0`     | no       |
 | `objects`                   | Enable/Disable Objects                     | `number`| `0`     | no       |
+| `actions`                   | List of PubNub Actions to create via Events & Actions API | `list(object({ name=string, type=string, url=string, headers=map(string), body=string }))` | `[]` | no |
+| `events`                    | List of PubNub Events to create via Events & Actions API  | `list(object({ name=string, status=string, filter=string, action_ids=list(string) }))` | `[]` | no |
 | `illuminate_base_url`       | Base URL for Illuminate API                | `string`| n/a     | yes      |
 | `business_object_name`      | Name of the Illuminate Business Object     | `string`| n/a     | yes      |
 | `business_object_description`| Description of the Illuminate Business Object | `string`| n/a     | yes   |
@@ -126,6 +128,8 @@ output "dashboard_id" {
 | `key_id`               | The ID of the created PubNub API Key              |
 | `business_object_id`   | The ID of the created Illuminate Business Object  |
 | `dashboard_id`         | The ID of the created Illuminate Dashboard        |
+| `action_ids`           | IDs of the created PubNub Actions                  |
+| `event_ids`            | IDs of the created PubNub Events                   |
 
 ## Example Configuration
 

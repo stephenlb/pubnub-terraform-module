@@ -15,5 +15,15 @@
 
      output "dashboard_id" {
        description = "The ID of the created Illuminate Dashboard"
-       value       = null_resource.create_illuminate_dashboard.triggers.activate_business_object
-     }
+      value       = null_resource.create_illuminate_dashboard.triggers.activate_business_object
+    }
+
+    output "action_ids" {
+      description = "The IDs of the created PubNub Actions"
+      value       = { for name, r in openapi_resource.actions : name => r.response_body.id }
+    }
+
+    output "event_ids" {
+      description = "The IDs of the created PubNub Events"
+      value       = { for name, r in openapi_resource.events  : name => r.response_body.id }
+    }

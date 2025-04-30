@@ -143,3 +143,26 @@
         dimensionIds = list(string)
       }))
     }
+    # PubNub Events & Actions support
+    variable "actions" {
+      description = "List of PubNub Actions to create via Events & Actions API"
+      type = list(object({
+        name    = string
+        type    = string
+        url     = string
+        headers = map(string)
+        body    = string
+      }))
+      default = []
+    }
+
+    variable "events" {
+      description = "List of PubNub Events to create via Events & Actions API"
+      type = list(object({
+        name       = string
+        status     = string
+        filter     = string
+        action_ids = list(string)
+      }))
+      default = []
+    }
